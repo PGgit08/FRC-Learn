@@ -20,6 +20,8 @@ public final class Constants {
   // CAN IDs
   public static class CAN {
     public static final int WHEEL_MOTOR_ID = 10;
+    public static final int CLAW_MOTOR_ID = 5;
+
     public static final int ARM_ENC_ID = 3;
   }
 }

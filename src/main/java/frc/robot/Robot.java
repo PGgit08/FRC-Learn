@@ -36,43 +36,6 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
-
-
-
-    // create a new talon object in the code, passing in the motor's CAN ID
-    // TalonFX wheelMotor = new TalonFX(10);
-    TalonFX wheelMotor = new TalonFX(Constants.CAN.WHEEL_MOTOR_ID); // using the value from constants
-
-    // tells the Talon that we'll be reading from its built-in INCREMENTAL encoder
-    wheelMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
-
-    // sets the percent output of the Talon
-    // (between -1.0 (full power reverse) and +1.0 (full power forward), with 0 being no motion)
-    wheelMotor.set(TalonFXControlMode.PercentOutput, 0.5);
-
-    // pause for 3 seconds (similar to python time.sleep), letting the motors spin at 0.5 percent output
-    Timer.delay(3);
-
-    // display in the console how many ticks the built-in encoder traveled
-    System.out.println(wheelMotor.getSelectedSensorPosition());
-
-
-
-
-
-    // create a new cancoder object in the code, passing in the encoder's CAN ID
-    // CANCoder armEncoder = new CANCoder(3);
-    CANCoder armEncoder = new CANCoder(Constants.CAN.ARM_ENC_ID); // using the value from constants
-
-    // tells the CANCoder that we want the absolute position (angle) to be between 0 degrees and 360 degrees
-    armEncoder.configAbsoluteSensorRange(AbsoluteSensorRange.Unsigned_0_to_360);
-
-    // displays the absolute position (angle) of the encoder
-    System.out.println(armEncoder.getAbsolutePosition());
-
-
-
-    
     System.out.println("Robot turned on, I'm printed.");
     System.out.println();
   }
@@ -92,7 +55,7 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run(); // gonna talk about this later
 
-    System.out.println("I'm printed periodically, every 20ms.");
+    // System.out.println("I'm printed periodically, every 20ms.");
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

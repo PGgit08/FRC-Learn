@@ -15,7 +15,7 @@ public class ClawSubsystem extends SubsystemBase {
 
   /** Creates a new Claw. */
   public ClawSubsystem() {
-    _clawMotor = new TalonFX(Constants.CAN.CLAW_MOTOR_ID);
+    _clawMotor = new TalonFX(Constants.CAN.CLAW_MOTOR_ID); // CAN ID in Constants
   }
 
   /** Slowly opens the claw. */

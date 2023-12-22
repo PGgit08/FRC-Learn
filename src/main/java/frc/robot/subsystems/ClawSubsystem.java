@@ -21,16 +21,19 @@ public class ClawSubsystem extends SubsystemBase {
   /** Slowly opens the claw. */
   public void openClaw() {
     _clawMotor.set(TalonFXControlMode.PercentOutput, 0.3);
+    System.out.println("Claw is opening.");
   }
 
   /** Slowly closes the claw. */
   public void closeClaw() {
     _clawMotor.set(TalonFXControlMode.PercentOutput, -0.3);
+    System.out.println("Claw is closing");
   }
 
   /** Stops opening/closing claw. */
   public void stop() {
     _clawMotor.set(TalonFXControlMode.PercentOutput, 0);
+    System.out.println("Claw has stopped.");
   }
 
   @Override

@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class ClawSubsystem extends SubsystemBase {
+  // the talon controlling the claw
   private final TalonFX _clawMotor;
 
   /** Creates a new Claw. */
@@ -39,6 +40,6 @@ public class ClawSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    System.out.println("Periodic from Claw Subsystem!");
+    // System.out.println("Periodic from Claw Subsystem!");
   }
 }

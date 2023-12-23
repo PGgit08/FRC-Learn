@@ -4,8 +4,11 @@
 
 package frc.robot;
 
+import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.OpenClawCommand;
 import frc.robot.subsystems.ClawSubsystem;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj2.command.Command;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -17,22 +20,25 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ClawSubsystem _clawSubsystem = new ClawSubsystem();
 
-
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     
-    /** ⬇ CLAW SUBSYSTEM TEST CODE ⬇ */
-    // open the claw slowly
-    _clawSubsystem.openClaw();
+    // /** ⬇ CLAW SUBSYSTEM TEST CODE ⬇ */
+    // // open the claw slowly
+    // _clawSubsystem.openClaw();
 
-    // let the claw open for 1 second
-    Timer.delay(1);
+    // // let the claw open for 1 second
+    // Timer.delay(1);
 
-    // stop opening the claw
-    _clawSubsystem.stop();
+    // // stop opening the claw
+    // _clawSubsystem.stop();
 
+    new OpenClawCommand(_clawSubsystem).schedule();
   }
 
+  public Command getAutonCommand() {
+    return new OpenClawCommand(_clawSubsystem);
+  }
 
   // binds commands to joystick buttons
   private void configureBindings() {

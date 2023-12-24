@@ -32,10 +32,11 @@ public class RobotContainer {
 
     // // stop opening the claw
     // _clawSubsystem.stop();
-
-    new OpenClawCommand(_clawSubsystem).schedule();
+  
+    // ⬆ MOVED INTO OpenClawCommand ⬆
   }
 
+  /** Return the Command that gets scheduled once the robot is enabled in auton mode. */
   public Command getAutonCommand() {
     return new OpenClawCommand(_clawSubsystem);
   }

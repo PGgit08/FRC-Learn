@@ -18,13 +18,16 @@ public class OpenClawCommand extends CommandBase {
     _timer = new Timer();
 
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(clawSubsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    _timer.start();
-    _clawSubsystem.openClaw();
+    System.out.println("OpenClawCommand has been scheduled.");
+
+    _timer.start(); // start a "stopwatch" timer 
+    _clawSubsystem.openClaw(); // open the claw slowly
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -34,13 +37,15 @@ public class OpenClawCommand extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    _clawSubsystem.stop();
-    _timer.stop();
+    System.out.println("1 second has passed, OpenClawCommand ended.");
+
+    _clawSubsystem.stop(); // stop opening the claw
+    _timer.stop(); // end the timer
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return _timer.hasElapsed(1);
+    return _timer.hasElapsed(1); // finish the command if 1 second has elasped in the timer
   }
 }

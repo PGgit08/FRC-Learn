@@ -4,14 +4,7 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
-import com.ctre.phoenix.sensors.AbsoluteSensorRange;
-import com.ctre.phoenix.sensors.CANCoder;
-
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
@@ -71,10 +64,10 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     // get the auton command from robot container
-    Command autonCommand = m_robotContainer.getAutonCommand();
+    m_autonomousCommand = m_robotContainer.getAutonCommand();
 
     // schedule the command
-    autonCommand.schedule();
+    m_autonomousCommand.schedule();
   }
 
   /** This function is called periodically during autonomous. */

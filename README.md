@@ -1,2 +1,2 @@
 # FRC-Learn
-FRC coding learning.
+FRC coding learning (for new 334 members).

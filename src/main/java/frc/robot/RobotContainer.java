@@ -6,6 +6,8 @@ package frc.robot;
 
 import frc.robot.commands.OpenClawCommand;
 import frc.robot.subsystems.ClawSubsystem;
+import edu.wpi.first.math.filter.MedianFilter;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -26,8 +28,45 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    SmartDashboard.putString("Example Topic", "Hello");
-    SmartDashboard.putNumber("Example Number Topic", 1);
+    MedianFilter filter = new MedianFilter(13);
+    SmartDashboard.putNumber("OUT", 0);
+
+    double[] values = {
+      60,
+      60,
+      60,
+      60,
+      60, 
+      60, 
+      60,
+      0,
+      0,
+      10,
+      30,
+      50,
+      51,
+      56,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+    };
+
+    for (double value: values) {
+      SmartDashboard.putNumber("OUT", filter.calculate(value));
+      Timer.delay(0.55);
+    }
+
+    // Timer.delay(10);
+    // out = filter.calculate(100);
+    // SmartDashboard.putNumber("OUT", out);
+
+
 
     // bind ps4 controller buttons to Commands
     configureBindings();
